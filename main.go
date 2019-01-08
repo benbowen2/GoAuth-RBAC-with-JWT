@@ -19,7 +19,6 @@ func main() {
 	r.HandleFunc("/something", AuthorizeUser([]string{"canDoSomething"}, doSomething))
 	r.HandleFunc("/something/else", AuthorizeUser([]string{"canDoSomethingElse"}, doSomethingElse))
 
-
 	loggedHandler := handlers.LoggingHandler(os.Stdout, r)
 	log.Fatal(
 		http.ListenAndServe(
@@ -77,8 +76,8 @@ func LoginUser(w http.ResponseWriter, r *http.Request) {
 
 func doSomething(w http.ResponseWriter, r *http.Request) {
 	type Something struct {
-		Foo	string `json:foo`
-		Bar int `json:bar`
+		Foo string `json:foo`
+		Bar int    `json:bar`
 	}
 	var something Something
 	SendAsJSONResponse(w, something, http.StatusOK)
@@ -87,8 +86,8 @@ func doSomething(w http.ResponseWriter, r *http.Request) {
 
 func doSomethingElse(w http.ResponseWriter, r *http.Request) {
 	type Something struct {
-		Foo	string `json:foo`
-		Bar int `json:bar`
+		Foo string `json:foo`
+		Bar int    `json:bar`
 	}
 	var something Something
 	SendAsJSONResponse(w, something, http.StatusOK)

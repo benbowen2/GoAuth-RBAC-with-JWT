@@ -18,5 +18,4 @@ const (
 
 	// DB Errors
 	DBCONNECTIONERROR = "Error connecting to the database"
-
 )
